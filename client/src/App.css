@@ -22,12 +22,11 @@ Card.Text {
 }
 
 body {
-  background-color: #ffffff;
-  background-image: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #6284ff 50%,
-    #ff0000 100%
+  background: rgb(245, 4, 4);
+  background: radial-gradient(
+    circle,
+    rgba(245, 4, 4, 1) 5%,
+    rgba(255, 156, 0, 1) 99%
   );
 }
 
