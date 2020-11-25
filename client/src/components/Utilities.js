@@ -13,12 +13,11 @@ const movieList = [
   'Thor',
   'Hulk',
   'Ant-Man',
-  'Super-Man',
+  'Superman',
   'Wolverine',
   'The Flash',
   'Luke Cage',
   'The Punisher',
-  'Black Widow',
   'Dr. Strange',
   'Cat Woman',
   'Captain Marvel'
