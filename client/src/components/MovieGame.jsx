@@ -14,7 +14,7 @@ function DataFetching() {
   const [count, setCount] = useState(0);
 
   const [randomMovie, setRandomMovie] = useState(
-    movieList[Math.floor(Math.random() * movieList.length) + 1]
+    movieList[Math.floor(Math.random() * movieList.length)]
   );
 
   useEffect(() => {
@@ -39,8 +39,9 @@ function DataFetching() {
   const submitGuess = (event) => {
     event.preventDefault();
     console.log('You just submitted your guess!');
+    console.log(guess);
     setHasGuessed(true);
-    if (guess === rounds[currentRound].answer) {
+    if (guess === posts.title) {
       console.log('correct!');
       setCount(count + 1);
     }
@@ -55,6 +56,13 @@ function DataFetching() {
   //};
 
   const nextRound = () => {
+    setHasGuessed(false);
+
+    if (currentRound >= 8) {
+      setCurrentRound(0);
+      alert(`Nice job! Play again?`);
+      return;
+    }
     setRandomMovie(movieList[Math.floor(Math.random() * movieList.length)]);
     setCurrentRound(currentRound + 1);
     //set game for next round
@@ -63,7 +71,7 @@ function DataFetching() {
 
   return (
     <div className="container">
-      {rounds[currentRound].question}
+      <h1>Round {currentRound + 1}</h1>
       <h2> KJT MOVIE SPREE </h2>
       <h1>Based on this plot, what could this movie be?</h1>
       <div className="card-container">
