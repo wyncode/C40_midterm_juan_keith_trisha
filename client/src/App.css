@@ -19,6 +19,7 @@ Card.Text {
 
 .button {
   margin-top: 30px;
+  margin-left: 40px;
 }
 
 body {
@@ -30,9 +31,12 @@ body {
   );
 }
 
-h1,
-p {
+/* h2 {
+} */
+
+h1 {
   color: white;
+  font-family: 'Fredoka One', cursive;
 }
 
 .button {
@@ -43,4 +47,10 @@ p {
   width: 20vw;
   height: 3vh;
   font-size: 14pt;
+  border-radius: 30px;
+}
+
+p {
+  color: white;
+  font-family: 'Fredoka One', cursive;
 }

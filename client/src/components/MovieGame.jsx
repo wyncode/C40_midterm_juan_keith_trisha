@@ -64,7 +64,8 @@ function DataFetching() {
   return (
     <div className="container">
       {rounds[currentRound].question}
-      <h1>Guess The Movie??</h1>
+      <h2> KJT MOVIE SPREE </h2>
+      <h1>Based on this plot, what could this movie be?</h1>
       <div className="card-container">
         <div key={posts.id}>
           <MovieCard posts={posts} show={hasGuessed} />
