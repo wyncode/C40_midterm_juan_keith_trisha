@@ -6,9 +6,6 @@
   align-items: center;
 }
 
-Card.Text {
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -18,23 +15,25 @@ Card.Text {
 }
 
 .button {
-  margin-top: 100px;
+  margin-top: 30px;
   margin-left: 40px;
 }
 
 body {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(35, 35, 149, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
+  background: rgb(245, 4, 4);
+  background: radial-gradient(
+    circle,
+    rgba(245, 4, 4, 1) 5%,
+    rgba(255, 156, 0, 1) 99%
   );
 }
 
-h1,
-p {
+/* h2 {
+} */
+
+h1 {
   color: white;
+  font-family: 'Fredoka One', cursive;
   font-size: 25px;
 }
 
@@ -46,14 +45,10 @@ p {
   width: 20vw;
   height: 3vh;
   font-size: 14pt;
-  border-radius: 40px;
+  border-radius: 30px;
 }
 
 p {
   color: white;
-  text-shadow: 2px 2px 4px #000000;
-}
-
-h1 {
-  font-size: 50px;
+  font-family: 'Fredoka One', cursive;
 }
