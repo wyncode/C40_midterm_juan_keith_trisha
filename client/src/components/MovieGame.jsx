@@ -46,24 +46,19 @@ function DataFetching() {
     }
   };
 
-  // nextRound();
-  // if (guess === posts.data.title) {
+  //nextRound();
+  //if (guess === posts.data.title) {
   // you win
-  // } else {
+  //} else {
   // you got it wrong
-  // }
-  // };
+  //}
+  //};
 
   const nextRound = () => {
-    // setRandomMovie(movieList[Math.floor(Math.random() * movieList.length)]);
-    // setCurrentRound(currentRound + 1);
-    // //set game for next round
-    // //check if round limit reached
-    // //if (guess === ) {
-    // //console.log('correct');
-    // //} else {
-    // //console.log('incorrect');
-    // //}
+    setRandomMovie(movieList[Math.floor(Math.random() * movieList.length)]);
+    setCurrentRound(currentRound + 1);
+    //set game for next round
+    //check if round limit reached
   };
 
   return (

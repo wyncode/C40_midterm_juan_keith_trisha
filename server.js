@@ -9,26 +9,24 @@ const axios = require('axios');
 
 // JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
 
-// cAPI_KEY = process.env.API_KEY;
-//   console.log(API_KEY);
-//   try {onst getOmdbAPI = async (search) => {
-//   const
-//     const resp = await axios.get(
-//       `http://www.omdbapi.com/?apikey=${API_KEY}&t='${search}'`
-//     );
-//     return resp;
-//   } catch (e) {
-//     console.log(e.message);
-//   }
-// };
+const getOmdbAPI = async (search) => {
+  const API_KEY = process.env.TOKEN;
+  console.log(API_KEY);
+  try {
+    const resp = await axios.get(
+      `http://www.omdbapi.com/?apikey=${API_KEY}&t='${search}'`
+    );
+    return resp;
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 
 app.get('/ombd', async (request, response) => {
   const { search } = request.query;
   console.log(search);
   try {
-    const movieData = await axios.get(
-      `http://www.omdbapi.com/?apikey=e772d5f8&t=${search}`
-    );
+    const movieData = await getOmdbAPI(search);
     response.json(movieData.data);
 
     // response.json("Hello WOrld");
