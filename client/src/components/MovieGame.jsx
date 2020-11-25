@@ -14,11 +14,11 @@ function DataFetching() {
   const [count, setCount] = useState(0);
 
   const [randomMovie, setRandomMovie] = useState(
-    movieList[Math.floor(Math.random() * movieList.length)]
+    movieList[Math.floor(Math.random() * movieList.length) + 1]
   );
 
   useEffect(() => {
-    console.log('hello');
+    console.log();
     axios
       .get(`/ombd?search=${randomMovie}`)
       .then((res) => {
@@ -38,10 +38,10 @@ function DataFetching() {
 
   const submitGuess = (event) => {
     event.preventDefault();
-    console.log(guess);
+    console.log('You just submitted your guess!');
     setHasGuessed(true);
     if (guess === rounds[currentRound].answer) {
-      // do something amazing
+      console.log('correct!');
       setCount(count + 1);
     }
   };

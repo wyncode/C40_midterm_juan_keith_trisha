@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
+const API_KEY = process.env.API_KEY;
 const express = require('express');
 const path = require('path');
 const app = express();
