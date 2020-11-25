@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
+const API_KEY = process.env.API_KEY;
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -9,19 +9,31 @@ const axios = require('axios');
 
 // JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
 
-const getOmdbAPI = async () => {
-  const API_KEY = process.env.API_KEY;
-  return axios.get(`http://www.omdbapi.com/?apikey=e772d5f8&t=deadpool`);
-};
+// cAPI_KEY = process.env.API_KEY;
+//   console.log(API_KEY);
+//   try {onst getOmdbAPI = async (search) => {
+//   const
+//     const resp = await axios.get(
+//       `http://www.omdbapi.com/?apikey=${API_KEY}&t='${search}'`
+//     );
+//     return resp;
+//   } catch (e) {
+//     console.log(e.message);
+//   }
+// };
 
 app.get('/ombd', async (request, response) => {
+  const { search } = request.query;
+  console.log(search);
   try {
-    const movieData = await getOmdbAPI();
+    const movieData = await axios.get(
+      `http://www.omdbapi.com/?apikey=e772d5f8&t=${search}`
+    );
     response.json(movieData.data);
 
     // response.json("Hello WOrld");
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 });
 // END DEMO
