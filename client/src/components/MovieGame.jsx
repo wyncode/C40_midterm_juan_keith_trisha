@@ -38,10 +38,12 @@ function DataFetching() {
 
   const submitGuess = (event) => {
     event.preventDefault();
-    console.log('You just submitted your guess!');
+    const form = event.target;
     console.log(guess);
+    console.log(posts.Title);
+    form.reset();
     setHasGuessed(true);
-    if (guess === posts.title) {
+    if (guess.toLowerCase() === posts.Title.toLowerCase()) {
       console.log('correct!');
       setCount(count + 1);
     }
@@ -60,7 +62,7 @@ function DataFetching() {
 
     if (currentRound >= 8) {
       setCurrentRound(0);
-      alert(`Nice job! Play again?`);
+      alert(`Your score was ${count}!\nPlay again?`);
       return;
     }
     setRandomMovie(movieList[Math.floor(Math.random() * movieList.length)]);
