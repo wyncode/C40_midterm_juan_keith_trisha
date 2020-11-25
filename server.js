@@ -10,11 +10,9 @@ const axios = require('axios');
 // JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
 
 const getOmdbAPI = async (search) => {
-  const API_KEY = process.env.TOKEN;
-  console.log(API_KEY);
   try {
     const resp = await axios.get(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&t='${search}'`
+      `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t='${search}'`
     );
     return resp;
   } catch (e) {

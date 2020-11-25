@@ -9,7 +9,7 @@ import DataFetching from './components/MovieGame';
 const App = () => {
   return (
     <Container>
-      {/* <DataFetching /> */}
+      <DataFetching />
       <SearchForm />
     </Container>
   );

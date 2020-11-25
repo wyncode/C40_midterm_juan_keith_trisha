@@ -38,15 +38,16 @@ const SearchForm = (event) => {
         <Form.Row>
           <Form.Control
             id="searchbar"
+            className="guess-bar"
             size="lg"
             type="text"
             placeholder="SEARCH FOR MOVIE..."
             defaultValue={search}
           />
+          <Button variant="primary" className="button" type="submit">
+            Search
+          </Button>
         </Form.Row>
-        <Button variant="primary" className="button" type="submit">
-          Search
-        </Button>
       </Form>
       {apiData && (
         <Card key={apiData.id} style={{ width: 200, margin: 5 }}>
