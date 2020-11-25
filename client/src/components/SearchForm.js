@@ -4,15 +4,12 @@ import { Form } from 'react-bootstrap';
 import SearchCard from './SearchCard';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
 const SearchForm = (event) => {
   const [search, setSearch] = useState('');
   const [apiData, setApiData] = useState([]);
-
   const submitSearch = (event) => {
     event.preventDefault();
     setSearch(event.target.elements.searchbar.value);
-
     const fetchData = async () => {
       const result = await axios.get(`/ombd?search=${search}`);
       console.log(result.data);
@@ -24,7 +21,6 @@ const SearchForm = (event) => {
       console.error(error);
     }
   };
-
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(`/ombd?search=${search}`);
@@ -36,7 +32,6 @@ const SearchForm = (event) => {
       console.error(error);
     }
   }, [search]);
-
   return (
     <>
       <Form onSubmit={submitSearch}>
@@ -45,36 +40,28 @@ const SearchForm = (event) => {
             id="searchbar"
             size="lg"
             type="text"
-            placeholder="SEARCH MOVIE"
+            placeholder="SEARCH FOR MOVIE..."
             defaultValue={search}
           />
         </Form.Row>
         <Button variant="primary" className="button" type="submit">
-          Guess
-        </Button>{' '}
+          Search
+        </Button>
       </Form>
-
-      {apiData &&
-        apiData.map((movie) => {
-          console.log(movie);
-          return (
-            <Card key={movie.id} style={{ width: 200, margin: 5 }}>
-              {/* <a href={`/ombd/${movie.id}`}> */}
-              <Card.Img
-                variant="top"
-                src={movie.Poster}
-                alt={movie.Plot}
-                width={200}
-              />
-              {/* </a> */}
-              <Card.Body>
-                <Card.Title>{movie.Plot}</Card.Title>
-              </Card.Body>
-            </Card>
-          );
-        })}
+      {apiData && (
+        <Card key={apiData.id} style={{ width: 200, margin: 5 }}>
+          <Card.Img
+            variant="top"
+            src={apiData.Poster}
+            alt={apiData.Plot}
+            width={200}
+          />
+          <Card.Body>
+            <Card.Title>{apiData.Plot}</Card.Title>
+          </Card.Body>
+        </Card>
+      )}
     </>
   );
 };
-
 export default SearchForm;
